@@ -1,0 +1,20 @@
+{
+    "name": "sanya/PHP7-Migrator",
+    "type": "project",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Snegovoy98",
+            "email": ""
+        }
+    ],
+    "minimum-stability": "stable",
+    "require": {
+        "phpdocumentor/reflection-docblock": "^4.3"
+    },
+    "autoload": {
+        "psr-4": {
+            "App\\": ""
+        }
+    }
+}
