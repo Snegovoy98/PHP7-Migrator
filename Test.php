@@ -15,8 +15,12 @@ class Test
      * @param float     $param1
      * @param string    $param2
      * @param null|int  $param3
+     *
+     * @return int|null
      */
-    public function testMethod($param1, $param2, $param3)
+
+
+    public function testMethod(float $param1, string $param2, ?int $param3) :?int
     {
     }
 
@@ -24,8 +28,10 @@ class Test
      * This is second test method.
      *
      * @param null|object $data
+     *
+     * @return void
      */
-    public function test($data)
+    public function test(?object $data) :void
     {
     }
 }
