@@ -16,7 +16,7 @@ class Test
      * @param string    $param2
      * @param null|int  $param3
      *
-     * @return int|null
+     * @return string|null
      */
 
 
