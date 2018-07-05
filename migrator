@@ -27,9 +27,6 @@ foreach ($methods as $method) {
         $types = \explode('|', $type);
         $paramName = '$' . $param->getVariableName();
         $typesNum = count($types);
-
-        // TODO: handle "mixed" type
-
         if ($typesNum > 2) {
             continue;
         } elseif ($typesNum === 2 && in_array('null', $types)) {
@@ -53,8 +50,8 @@ foreach ($methods as $method) {
         $methodSignature = $methodSignature.' :'.$type;
     }
     $classToMigrate = str_replace($oldMethodSignature, $methodSignature, $classToMigrate);
-    var_dump($classToMigrate);
+
 
 }
 
-//\file_put_contents($classToMigrateFile, $classToMigrate);
+\file_put_contents($classToMigrateFile, $classToMigrate);
