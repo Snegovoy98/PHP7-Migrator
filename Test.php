@@ -16,11 +16,11 @@ class Test
      * @param string    $param2
      * @param null|int  $param3
      *
-     * @return string|null
+     * @return string
      */
 
 
-    public function testMethod(float $param1, string $param2, ?int $param3) :?int
+    public function testMethod(float $param1,  string $param2,  ?int $param3) :string
     {
     }
 
@@ -31,7 +31,7 @@ class Test
      *
      * @return void
      */
-    public function test(?object $data) :void
+    public function test( ?object $data) :void
     {
     }
 }
