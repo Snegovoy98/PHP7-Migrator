@@ -1,10 +1,10 @@
 {
     "_readme": [
         "This file locks the dependencies of your project to a known state",
-        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
+        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "eb52b6707b0d09681bef8ca2862bace7",
+    "content-hash": "7fcbf3b2e6f43bf7613ffa4c4c6ced41",
     "packages": [
         {
             "name": "phpdocumentor/reflection-common",
