@@ -5,7 +5,7 @@ namespace App;
 /**
  * Class for testing of the migration tool.
  *
- * @author Vladimir Kuprienko <vldmr.kuprienko@gmail.com>
+ * @author Snegovoy Alex
  */
 class Test
 {
