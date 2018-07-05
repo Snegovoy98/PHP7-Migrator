@@ -16,14 +16,13 @@ foreach ($methods as $method) {
 
     $docBlock = $factory->create($method->getDocComment());
     $params = $docBlock->getTagsByName('param');
-
+    $returnsTypeHint = $docBlock->getTagsByName('return');
     $pattern = '/' . $method->getName() . '\(.+\)' . '/';
     \preg_match($pattern, $classToMigrate, $matches);
     $methodSignature = $matches[0];
-    var_dump($pattern);
     $oldMethodSignature = $methodSignature;
+     foreach ($params as $param) {
 
-    foreach ($params as $param) {
         $type = (string) $param->getType();
         $types = \explode('|', $type);
         $paramName = '$' . $param->getVariableName();
@@ -39,8 +38,23 @@ foreach ($methods as $method) {
 
         $methodSignature = str_replace($paramName, $type . ' ' . $paramName, $methodSignature);
     }
+    foreach ($returnsTypeHint as $returnTypeHint) {
 
+        $type = (string) $returnTypeHint->getType();
+        $types = \explode('|', $type);
+
+        $typesNum = count($types);
+
+        if ($typesNum === 2 && in_array('null', $types) && !in_array('void', $types)) {
+           $type = '?' . ($types[0] === 'null' ? $types[1] : $types[0]);
+        } elseif (in_array('void', $types)) {
+           $type = 'void' ;
+       }
+        $methodSignature = $methodSignature.' :'.$type;
+    }
     $classToMigrate = str_replace($oldMethodSignature, $methodSignature, $classToMigrate);
+    var_dump($classToMigrate);
+
 }
 
-\file_put_contents($classToMigrateFile, $classToMigrate);
+//\file_put_contents($classToMigrateFile, $classToMigrate);
