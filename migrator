@@ -42,7 +42,7 @@ foreach ($methods as $method) {
 
         $typesNum = count($types);
 
-        if ($typesNum === 2 && in_array('null', $types) && !in_array('void', $types)) {
+        if ($typesNum === 2 && in_array('null', $types)) {
            $type = '?' . ($types[0] === 'null' ? $types[1] : $types[0]);
         } elseif (in_array('void', $types)) {
            $type = 'void' ;
@@ -50,8 +50,6 @@ foreach ($methods as $method) {
         $methodSignature = $methodSignature.' :'.$type;
     }
     $classToMigrate = str_replace($oldMethodSignature, $methodSignature, $classToMigrate);
-
-
 }
 
 \file_put_contents($classToMigrateFile, $classToMigrate);
